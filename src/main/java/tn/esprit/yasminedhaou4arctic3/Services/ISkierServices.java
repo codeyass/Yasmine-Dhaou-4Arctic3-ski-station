@@ -11,6 +11,8 @@ public interface ISkierServices {
     void deleteSkier(int numSkier);
     List<Skier> retrieveAll();
 
+    Skier addSkierAndAssignToCourse(Skier skier, Long numCourse);
+
 
 
 }

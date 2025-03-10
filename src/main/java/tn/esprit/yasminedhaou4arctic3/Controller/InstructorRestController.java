@@ -1,5 +1,6 @@
 package tn.esprit.yasminedhaou4arctic3.Controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.yasminedhaou4arctic3.Entities.Instructor;
@@ -10,9 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("instructor")
+@AllArgsConstructor
 public class InstructorRestController {
 
-    @Autowired
+
     private IInstructorServices instructorServices;
 
     @PostMapping("add")
@@ -42,6 +44,12 @@ public class InstructorRestController {
     @DeleteMapping ("delete/{numInstructor}")
     public void deleteInstructor(@PathVariable Long numInstructor){
         instructorServices.deleteInstructor(numInstructor);
+    }
+
+    @PostMapping("addins/{numCourse}")
+    public Instructor addInstructorAndAssignToCourse(@RequestBody Instructor instructor, @PathVariable Long numCourse) {
+        return  instructorServices.addInstructorAndAssignToCourse(instructor,numCourse);
+
     }
 
 }

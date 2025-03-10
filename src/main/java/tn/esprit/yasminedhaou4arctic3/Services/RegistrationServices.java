@@ -1,24 +1,26 @@
 package tn.esprit.yasminedhaou4arctic3.Services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.yasminedhaou4arctic3.Entities.Registration;
+import tn.esprit.yasminedhaou4arctic3.Entities.Skier;
 import tn.esprit.yasminedhaou4arctic3.Repositories.ICourseRepository;
 import tn.esprit.yasminedhaou4arctic3.Repositories.IRegistrationRepository;
 import tn.esprit.yasminedhaou4arctic3.Repositories.ISkierRepository;
 
 import java.util.List;
-
+@AllArgsConstructor
 @Service
 public class RegistrationServices implements IRegistrationServices{
 
-    @Autowired
+
     private IRegistrationRepository registrationRepository;
 
-    @Autowired
+
     private ICourseRepository courseRepository;
 
-    @Autowired
+
     private ISkierRepository skierRepository;
 
     @Override
@@ -59,5 +61,12 @@ registrationRepository.deleteById(numReg);
     @Override
     public List<Registration> retrieveAll() {
         return registrationRepository.findAll();
+    }
+
+    @Override
+    public Registration assignSkier(Registration registration, int numSkier) {
+        Skier skier=skierRepository.findById(numSkier).orElse(null);
+        registration.setSkier(skier);
+        return registrationRepository.save(registration);
     }
 }

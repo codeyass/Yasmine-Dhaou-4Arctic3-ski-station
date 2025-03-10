@@ -44,4 +44,9 @@ public class PisteRestController {
         pisteServices.deletePiste(numPiste);
     }
 
+    @PostMapping("assign-skier-to-piste/{numSkier}/{numPiste}")
+    public Piste assignSkierToPiste(@PathVariable int numSkier, @PathVariable Long numPiste) {
+        return pisteServices.assignSkierToPiste(numSkier, numPiste);
+    }
+
 }

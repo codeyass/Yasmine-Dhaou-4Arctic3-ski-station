@@ -44,4 +44,9 @@ public class RegistrationRestController {
     public void deleteReg(@PathVariable Long numReg){
         registrationServices.deleteReg(numReg);
     }
+
+    @PostMapping("addReg/{numSkier}")
+    public Registration addRegistrationAndAssignToSkier(@RequestBody Registration registration, @PathVariable(name = "numSkier") int numSkier) {
+        return registrationServices.assignSkier(registration, numSkier);
+    }
 }

@@ -18,6 +18,7 @@ public class Course implements Serializable {
     long numCourse;
     int level;
 
+
     @Enumerated(EnumType.STRING)
     TypeCourse typeCourse;
 

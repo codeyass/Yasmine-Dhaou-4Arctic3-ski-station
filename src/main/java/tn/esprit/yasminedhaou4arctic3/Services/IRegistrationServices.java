@@ -12,4 +12,6 @@ public interface IRegistrationServices {
     Registration retrieveReg(Long numReg);
     void deleteReg(Long numReg);
     List<Registration> retrieveAll();
+
+    Registration assignSkier(Registration registration,int numSkier);
 }
