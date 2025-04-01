@@ -13,5 +13,8 @@ public interface IRegistrationServices {
     void deleteReg(Long numReg);
     List<Registration> retrieveAll();
 
-    Registration assignSkier(Registration registration,int numSkier);
+    Registration addRegistrationAndAssignToSkier(Registration registration,int numSkier);
+
+    Registration addRegistrationAndAssignToSkierAndCourse(Registration registration,
+                                                          int numSkier, Long numCourse);
 }

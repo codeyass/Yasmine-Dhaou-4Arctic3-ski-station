@@ -47,6 +47,11 @@ public class RegistrationRestController {
 
     @PostMapping("addReg/{numSkier}")
     public Registration addRegistrationAndAssignToSkier(@RequestBody Registration registration, @PathVariable(name = "numSkier") int numSkier) {
-        return registrationServices.assignSkier(registration, numSkier);
+        return registrationServices.addRegistrationAndAssignToSkier(registration, numSkier);
+    }
+
+    @PostMapping("ddRegAndAssignToSkAndCo/{numSkier}/{numCourse}")
+    public Registration addRegistrationAndAssignToSkierAndCourse(@RequestBody  Registration registration,@PathVariable int numSkier, @PathVariable Long numCourse){
+        return registrationServices.addRegistrationAndAssignToSkierAndCourse(registration,numSkier,numCourse);
     }
 }
